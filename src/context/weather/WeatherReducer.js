@@ -18,6 +18,11 @@ const weatherReducer = (state, action) => {
         currentLocation: action.payload,
         loading: false,
       }
+    case 'SET_LOADING':
+      return {
+        ...state,
+        loading: true,
+      }
     default:
       return state
   }

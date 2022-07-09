@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 function Navbar({ title }) {
   return (
     <IconContext.Provider value={{ color: '#ffff00' }}>
-      <nav className='navbar mb-12 shadow-lg bg-neutral text-gray-100'>
+      <nav className='navbar mb-5 shadow-lg bg-neutral text-gray-100'>
         <div className='container mx-auto flex'>
           <div className='flex-none px-2 mx-2'>
             <TiWeatherPartlySunny className='inline pr-2 text-3xl' />

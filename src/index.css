@@ -123,6 +123,15 @@ body {
   color: #f4f4f4;
 }
 
+.input-yellow {
+  border-color: rgb(255, 243, 0);
+}
+
+.input-yellow:focus {
+  outline: 2px solid rgb(255, 243, 0);
+  opacity: 0.8;
+}
+
 @media (min-width: 1024px) {
   .grid-temp-col {
     grid-template-columns: auto auto auto;

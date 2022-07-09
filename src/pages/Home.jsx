@@ -1,9 +1,10 @@
 import CurrentCondition from '../components/currentConditions/CurrentCondition'
+import CurrentConditionSearch from '../components/currentConditions/CurrentConditionSearch'
 
 function Home() {
   return (
     <>
-      {/* SEARCH  COMPONENT */}
+      <CurrentConditionSearch />
       <CurrentCondition />
     </>
   )
