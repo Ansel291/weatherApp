@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import Spinner from '../layout/Spinner'
 import WeatherContext from '../../context/weather/WeatherContext'
 
@@ -8,47 +8,49 @@ function CurrentCondition() {
     currentConditionsSecondary,
     currentLocation,
     loading,
-    fetchCurrentCondition,
+    //fetchCurrentCondition,
   } = useContext(WeatherContext)
 
+  /*
   useEffect(() => {
     fetchCurrentCondition()
   }, [])
+  */
 
   if (!loading) {
     return (
-      <div className='max-w-2xl mx-auto text-center lg:text-left conditions-text-color mt-[15px] md:mt-[40px]'>
+      <div className='max-w-2xl mx-auto text-center md:text-left conditions-text-color'>
         {currentLocation.name && (
-          <div className='text-4xl mb-5 font-medium lg:mb-6'>
+          <div className='text-[27.5px] md:text-[32px] mb-5px font-medium md:mb-6 mt-[35px] md:mt-[58px] leading-[36px]'>
             {currentLocation.name}, {currentLocation.region}
           </div>
         )}
 
-        <div className='grid-temp-col lg:grid lg:items-center lg:justify-between'>
-          <div className='mb-4 lg:mb-0'>
+        <div className='grid-temp-col md:grid md:items-center md:justify-between'>
+          {currentConditions.temp_f && (
+            <div className='text-[44px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.75px]'>
+              {Math.round(currentConditions.temp_f)}&#176;
+              <span className='ml-0.5'>F</span>
+            </div>
+          )}
+
+          <div className='mb-[5px] md:mb-0'>
             {currentConditionsSecondary.icon && (
               <img
-                className='m-auto lg:m-0'
+                className='m-auto'
                 src={currentConditionsSecondary.icon}
                 width='60'
                 height='60'
                 alt='Current Conditions'
               />
             )}
-            <div className='text-2xl lg:text-xl relative bottom-2.5'>
+            <div className='text-[20px] relative bottom-[12.5px] text-center'>
               {currentConditionsSecondary.text}
             </div>
           </div>
 
-          {currentConditions.temp_f && (
-            <div className='text-4xl mb-5 lg:mb-0 lg:text-5xl'>
-              {Math.round(currentConditions.temp_f)}&#176;
-              <span className='ml-0.5'>F</span>
-            </div>
-          )}
-
           {currentConditions.pressure_in && (
-            <div className='leading-relaxed'>
+            <div className='leading-[24px]'>
               <div>Pressure: {currentConditions.pressure_in} in</div>
               <div>Precipitation: {currentConditions.precip_in} in</div>
               <div>Wind: {Math.round(currentConditions.gust_mph)} mph</div>

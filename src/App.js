@@ -3,29 +3,34 @@ import Navbar from './components/layout/Navbar'
 //import CurrentConditionSearch from './components/currentConditions/CurrentConditionSearch'
 import Home from './pages/Home'
 import About from './pages/About'
-import NotFound from './pages/NotFound'
+import BadRequest from './pages/BadRequest'
 import Footer from './components/layout/Footer'
+import Alert from './components/layout/Alert'
 import { WeatherProvider } from './context/weather/WeatherContext'
+import { AlertProvider } from './context/alert/AlertContext'
 
 function App() {
   return (
     <WeatherProvider>
-      <Router>
-        {/* <div className='flex flex-col justify-between h-screen antialiased'> */}
-        <div className='flex flex-col justify-between  h-screen antialiased'>
-          <Navbar />
-          {/* <CurrentConditionSearch /> */}
-          <main className='container mx-auto px-6'>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/about' element={<About />} />
-              <Route path='/notfound' element={<NotFound />} />
-              <Route path='/*' element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+      <AlertProvider>
+        <Router>
+          {/* <div className='flex flex-col justify-between h-screen antialiased'> */}
+          <div className='flex flex-col justify-between h-screen antialiased weather-image overflow-x-hidden overflow-y-auto'>
+            <Navbar />
+            {/* <CurrentConditionSearch /> */}
+            <main className='container mx-auto px-6'>
+              <Alert />
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/badrequest' element={<BadRequest />} />
+                <Route path='/*' element={<BadRequest />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </AlertProvider>
     </WeatherProvider>
   )
 }

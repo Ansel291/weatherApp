@@ -11,6 +11,7 @@ export const WeatherProvider = ({ children }) => {
     currentConditions: [],
     currentConditionsSecondary: [],
     currentLocation: [],
+    currentForecast: [],
     loading: false,
   }
 
@@ -25,78 +26,82 @@ export const WeatherProvider = ({ children }) => {
   const [currentLocation, setCurrentLocation] = useState([])
   const [loading, setLoading] = useState(true)
   
-  const Http = new XMLHttpRequest()
-  var bdcApi = 'https://api.bigdatacloud.net/data/reverse-geocode-client'
-
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      bdcApi =
-        bdcApi +
-        '?latitude=' +
-        position.coords.latitude +
-        '&longitude=' +
-        position.coords.longitude +
-        '&localityLanguage=en'
-      getApi(bdcApi)
-    },
-    (err) => {
-      getApi(bdcApi)
-    },
-    {
-      enableHighAccuracy: true,
-      maximumAge: 0,
-    }
-  )
-
-  function getApi(bdcApi) {
-    Http.open('GET', bdcApi)
-    Http.send()
-    Http.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(JSON.parse(this.responseText).city)
-      }
-    }
-  }
-
   */
   }
 
-  // Get initial Current Weather Conditions (testing purposes)
-  const fetchCurrentCondition = async () => {
+  // Get initial Current Weather Conditions
+  const searchCurrentCondition = async (cityOrZipText) => {
     setLoading()
+
+    const params = new URLSearchParams({
+      key: `${WEATHER_TOKEN}`,
+      q: cityOrZipText,
+      days: '3',
+      aqi: 'no',
+      alerts: 'no',
+    })
+
+    //console.log(params)
+    /*
     const response = await fetch(
       `http://api.weatherapi.com/v1/current.json?key=${WEATHER_TOKEN}&q=Farmers Branch&aqi=no`
     )
-    //console.log(response)
-
-    const data = await response.json()
-    //console.log(data)
-
-    /*
-    setCurrentConditions(data.current)
-    //console.log(currentConditions)
-    setCurrentConditionsSecondary(data.current.condition)
-    //console.log(currentConditionsSecondary)
-    setCurrentLocation(data.location)
-    //console.log(currentLocation)
-    setLoading(false)
     */
 
-    dispatch({
-      type: 'GET_CURRENT',
-      payload: data.current,
-    })
+    /*
+    const response = await fetch(
+      `http://api.weatherapi.com/v1/current.json?${params}`
+    )
+    */
 
-    dispatch({
-      type: 'GET_CURRENT_SECONDARY',
-      payload: data.current.condition,
-    })
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/forecast.json?${params}`
+    )
 
-    dispatch({
-      type: 'GET_LOCATION',
-      payload: data.location,
-    })
+    //console.log(response)
+
+    if (response.status === 400) {
+      console.log(response.status)
+      window.location = '/badrequest'
+    } else {
+      const data = await response.json()
+      //console.log(data)
+
+      /*
+      setCurrentConditions(data.current)
+      //console.log(currentConditions)
+      setCurrentConditionsSecondary(data.current.condition)
+      //console.log(currentConditionsSecondary)
+      setCurrentLocation(data.location)
+      //console.log(currentLocation)
+      setLoading(false)
+      */
+
+      dispatch({
+        type: 'GET_CURRENT',
+        payload: data.current,
+      })
+
+      dispatch({
+        type: 'GET_CURRENT_SECONDARY',
+        payload: data.current.condition,
+      })
+
+      dispatch({
+        type: 'GET_LOCATION',
+        payload: data.location,
+      })
+
+      dispatch({
+        type: 'GET_CURRENT_FORECAST',
+        payload: data.forecast.forecastday,
+      })
+    }
   }
+
+  // Clear Current Weather Conditions from state
+  const clearCurrentConditions = () =>
+    dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })
 
   // Set Loading
   const setLoading = () => dispatch({ type: 'SET_LOADING' })
@@ -107,8 +112,10 @@ export const WeatherProvider = ({ children }) => {
         currentConditions: state.currentConditions,
         currentConditionsSecondary: state.currentConditionsSecondary,
         currentLocation: state.currentLocation,
+        currentForecast: state.currentForecast,
         loading: state.loading,
-        fetchCurrentCondition,
+        searchCurrentCondition,
+        clearCurrentConditions,
       }}
     >
       {children}

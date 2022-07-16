@@ -1,27 +1,51 @@
 import { useState, useContext } from 'react'
 import WeatherContext from '../../context/weather/WeatherContext'
+import AlertContext from '../../context/alert/AlertContext'
 
 function CurrentConditionSearch() {
-  const [text, setText] = useState('')
+  const [cityOrZipText, setCityOrZipText] = useState('')
 
-  const handleChange = (e) => setText(e.target.value)
+  const {
+    currentConditions,
+    //currentConditionsSecondary,
+    //currentLocation,
+    searchCurrentCondition,
+    clearCurrentConditions,
+  } = useContext(WeatherContext)
 
-  const { currentConditions } = useContext(WeatherContext)
+  const { setAlert } = useContext(AlertContext)
+
+  /*
+  console.log(currentConditions.length);
   //console.log(currentConditions.length)
+  //console.log(currentConditions.location)
+  //console.log(currentLocation)
+  if (!currentConditions.length) {
+    console.log('this array is empty')
+  } else {
+    console.log('this array is NOT empty')
+  }
+  */
+
+  const handleChange = (e) => setCityOrZipText(e.target.value)
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (text === '') {
-      alert('Please enter something')
+    if (cityOrZipText === '') {
+      setAlert('Please enter something.', 'error')
     } else {
-      // @todo search city or Zip
-      setText('')
+      searchCurrentCondition(cityOrZipText)
+      setCityOrZipText('')
     }
   }
 
   return (
-    <div className='max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 '>
+    <div
+      className={`max-w-2xl mx-auto grid gap-4 grid-cols-1  ${
+        typeof currentConditions.length === 'undefined' ? 'md:grid-cols-2' : ''
+      } `}
+    >
       <div>
         <form onSubmit={handleSubmit}>
           <div className='form-control'>
@@ -30,12 +54,12 @@ function CurrentConditionSearch() {
                 type='text'
                 className='w-full pr-40 bg-gray-100 input input-md text-black'
                 placeholder='Enter City or Zip'
-                value={text}
+                value={cityOrZipText}
                 onChange={handleChange}
               />
               <button
                 type='submit'
-                className='absolute top-0 right-0 rounded-l-none btn btn-md'
+                className='absolute top-0 right-0 rounded-l-none btn btn-md text-gray-100'
               >
                 Submit
               </button>
@@ -43,9 +67,12 @@ function CurrentConditionSearch() {
           </div>
         </form>
       </div>
-      {currentConditions.length > 0 && (
+      {typeof currentConditions.length === 'undefined' && (
         <div>
-          <button className='btn btn-outline btn-warning btn-block'>
+          <button
+            onClick={clearCurrentConditions}
+            className='btn btn-outline btn-warning btn-block'
+          >
             Clear
           </button>
         </div>

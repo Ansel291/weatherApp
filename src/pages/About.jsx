@@ -1,12 +1,14 @@
 function About() {
   return (
     <div className='max-w-2xl mx-auto conditions-text-color'>
-      <h1 className='text-3xl mb-3'>Weather App</h1>
-      <p className='mb-3 text-xl font-light'>
-        A React app to search for live current weather conditions by city as
-        well as display the 5-Day forecast.
+      <h1 className='text-3xl mb-[20px]'>Weather App</h1>
+      <p className='mb-[20px] text-xl font-light'>
+        A React App that searches for live current weather conditions by City or
+        Zip Code as well as displaying the 3-Day Forecast.
       </p>
-      <p className='text-xl font-light'>Version: 1.0.0</p>
+      <p className='text-xl font-light'>
+        <span className='font-bold'>Version:</span> 1.0.0
+      </p>
     </div>
   )
 }
