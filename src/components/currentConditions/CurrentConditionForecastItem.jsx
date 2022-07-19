@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function CurrentConditionForecastItem({ forecast: { date, date_epoch, day } }) {
   //console.log(date_epoch)
   console.log(day.condition.icon)
@@ -31,6 +33,10 @@ function CurrentConditionForecastItem({ forecast: { date, date_epoch, day } }) {
       </div>
     </div>
   )
+}
+
+CurrentConditionForecastItem.propTypes = {
+  forecast: PropTypes.object.isRequired,
 }
 
 export default CurrentConditionForecastItem

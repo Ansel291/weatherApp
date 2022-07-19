@@ -28,7 +28,7 @@ function CurrentCondition() {
 
         <div className='grid-temp-col md:grid md:items-center md:justify-between'>
           {currentConditions.temp_f && (
-            <div className='text-[44px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.75px]'>
+            <div className='text-[44px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.5px]'>
               {Math.round(currentConditions.temp_f)}&#176;
               <span className='ml-0.5'>F</span>
             </div>

@@ -5,7 +5,7 @@ function BadRequest() {
   return (
     <div className='hero'>
       <div className='text-center hero-content'>
-        <div className='max-w-lg'>
+        <div className='max-w-lg text-white'>
           <h1 className='text-5xl font-bold mb-5'>Oops!</h1>
           <p className='text-2xl mb-7'>400 - Bad Request!</p>
           <Link to='/' className='btn btn-outline btn-warning btn-md'>
