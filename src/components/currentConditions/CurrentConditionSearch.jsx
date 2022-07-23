@@ -59,7 +59,7 @@ function CurrentConditionSearch() {
               />
               <button
                 type='submit'
-                className='absolute top-0 right-0 rounded-l-none btn btn-md text-gray-100'
+                className='absolute top-0 right-0 rounded-l-none btn btn-md text-gray-100 bg-neutral'
               >
                 Submit
               </button>

@@ -2,14 +2,14 @@ import PropTypes from 'prop-types'
 
 function CurrentConditionForecastItem({ forecast: { date, date_epoch, day } }) {
   //console.log(date_epoch)
-  console.log(day.condition.icon)
+  //console.log(day.condition.icon)
   const timestamp = date_epoch
   //console.log(timestamp)
   const a = new Date(timestamp * 1000)
   //console.log(a)
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   const dayOfWeek = days[a.getDay()]
-  console.log(dayOfWeek)
+  //console.log(dayOfWeek)
   return (
     <div className='grid forecast-grid border-t border-[#f4f4f4] py-[5px] justify-center items-center'>
       <div>{dayOfWeek}</div>
