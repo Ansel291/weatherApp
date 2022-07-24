@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 
-function CurrentConditionForecastItem({ forecast: { date, date_epoch, day } }) {
+function CurrentConditionForecastItem({ forecast }) {
   //console.log(date_epoch)
   //console.log(day.condition.icon)
+  const { date_epoch, day } = forecast
+
   const timestamp = date_epoch
   //console.log(timestamp)
   const a = new Date(timestamp * 1000)

@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
 
-function CurrentConditionHourlyItem({ hourly: { time, temp_f, condition } }) {
+function CurrentConditionHourlyItem({ hourly }) {
   //console.log(time)
   //console.log(condition.icon)
   //console.log(temp_f)
   //const initialTime = time.substring(11)
   //console.log(initialTime)
+  const { time, temp_f, condition } = hourly
+
   console.log(time)
   let date = new Date(time.replace(/-/g, '/'))
   console.log(date)
