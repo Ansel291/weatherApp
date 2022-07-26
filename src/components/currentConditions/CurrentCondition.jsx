@@ -21,7 +21,7 @@ function CurrentCondition() {
     return (
       <div className='max-w-2xl mx-auto text-center md:text-left conditions-text-color'>
         {currentLocation.name && (
-          <div className='text-[27.5px] md:text-[32px] mb-5px font-medium md:mb-[10px] mt-[35px] md:mt-[55px] leading-[36px]'>
+          <div className='text-[27.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[35px] md:mt-[55px] leading-[36px]'>
             {currentLocation.name}, {currentLocation.region}
           </div>
         )}

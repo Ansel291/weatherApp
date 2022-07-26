@@ -1,16 +1,17 @@
 import { useState, useContext } from 'react'
 import WeatherContext from '../../context/weather/WeatherContext'
 import AlertContext from '../../context/alert/AlertContext'
+import { searchCurrentCondition } from '../../context/weather/WeatherActions'
 
 function CurrentConditionSearch() {
   const [cityOrZipText, setCityOrZipText] = useState('')
 
   const {
     currentConditions,
+    dispatch,
     //currentConditionsSecondary,
     //currentLocation,
-    searchCurrentCondition,
-    clearCurrentConditions,
+    //clearCurrentConditions,
   } = useContext(WeatherContext)
 
   const { setAlert } = useContext(AlertContext)
@@ -29,13 +30,34 @@ function CurrentConditionSearch() {
 
   const handleChange = (e) => setCityOrZipText(e.target.value)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (cityOrZipText === '') {
       setAlert('Please enter something.', 'error')
     } else {
-      searchCurrentCondition(cityOrZipText)
+      dispatch({ type: 'SET_LOADING' })
+      const currentConditions = await searchCurrentCondition(cityOrZipText)
+
+      console.log(currentConditions)
+
+      dispatch({ type: 'GET_CURRENT', payload: currentConditions.current })
+
+      dispatch({
+        type: 'GET_CURRENT_SECONDARY',
+        payload: currentConditions.current.condition,
+      })
+
+      dispatch({
+        type: 'GET_LOCATION',
+        payload: currentConditions.location,
+      })
+
+      dispatch({
+        type: 'GET_CURRENT_FORECAST',
+        payload: currentConditions.forecast.forecastday,
+      })
+
       setCityOrZipText('')
     }
   }
@@ -70,7 +92,7 @@ function CurrentConditionSearch() {
       {typeof currentConditions.length === 'undefined' && (
         <div>
           <button
-            onClick={clearCurrentConditions}
+            onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}
             className='btn btn-outline btn-warning btn-block'
           >
             Clear

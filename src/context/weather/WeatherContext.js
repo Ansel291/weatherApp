@@ -3,8 +3,10 @@ import weatherReducer from './WeatherReducer'
 
 const WeatherContext = createContext()
 
+/*
 //const WEATHER_URL = process.env.REACT_APP_WEATHER_API_URL
 const WEATHER_TOKEN = process.env.REACT_APP_WEATHER_API_TOKEN
+*/
 
 export const WeatherProvider = ({ children }) => {
   const initialState = {
@@ -17,18 +19,7 @@ export const WeatherProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(weatherReducer, initialState)
 
-  {
-    /*
-  const [currentConditions, setCurrentConditions] = useState([])
-  const [currentConditionsSecondary, setCurrentConditionsSecondary] = useState(
-    []
-  )
-  const [currentLocation, setCurrentLocation] = useState([])
-  const [loading, setLoading] = useState(true)
-  
-  */
-  }
-
+  /*
   // Get initial Current Weather Conditions
   const searchCurrentCondition = async (cityOrZipText) => {
     setLoading()
@@ -42,17 +33,6 @@ export const WeatherProvider = ({ children }) => {
     })
 
     //console.log(params)
-    /*
-    const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${WEATHER_TOKEN}&q=Farmers Branch&aqi=no`
-    )
-    */
-
-    /*
-    const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?${params}`
-    )
-    */
 
     const response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?${params}`
@@ -66,16 +46,6 @@ export const WeatherProvider = ({ children }) => {
     } else {
       const data = await response.json()
       //console.log(data)
-
-      /*
-      setCurrentConditions(data.current)
-      //console.log(currentConditions)
-      setCurrentConditionsSecondary(data.current.condition)
-      //console.log(currentConditionsSecondary)
-      setCurrentLocation(data.location)
-      //console.log(currentLocation)
-      setLoading(false)
-      */
 
       dispatch({
         type: 'GET_CURRENT',
@@ -98,24 +68,28 @@ export const WeatherProvider = ({ children }) => {
       })
     }
   }
+  */
 
   // Clear Current Weather Conditions from state
-  const clearCurrentConditions = () =>
-    dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })
+  //const clearCurrentConditions = () =>
+  //dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })
 
   // Set Loading
-  const setLoading = () => dispatch({ type: 'SET_LOADING' })
+  //const setLoading = () => dispatch({ type: 'SET_LOADING' })
 
   return (
     <WeatherContext.Provider
       value={{
-        currentConditions: state.currentConditions,
+        /* currentConditions: state.currentConditions,
         currentConditionsSecondary: state.currentConditionsSecondary,
         currentLocation: state.currentLocation,
         currentForecast: state.currentForecast,
         loading: state.loading,
-        searchCurrentCondition,
-        clearCurrentConditions,
+        */
+        ...state,
+        dispatch,
+        //searchCurrentCondition,
+        //clearCurrentConditions,
       }}
     >
       {children}
