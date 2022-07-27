@@ -1,5 +1,11 @@
-//const WEATHER_URL = process.env.REACT_APP_WEATHER_API_URL
+import axios from 'axios'
+
+const WEATHER_URL = process.env.REACT_APP_WEATHER_API_URL
 const WEATHER_TOKEN = process.env.REACT_APP_WEATHER_API_TOKEN
+
+const weather = axios.create({
+  baseURL: WEATHER_URL,
+})
 
 // Get initial Current Weather Conditions
 export const searchCurrentCondition = async (cityOrZipText) => {
