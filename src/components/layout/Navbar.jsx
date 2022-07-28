@@ -8,7 +8,7 @@ function Navbar({ title }) {
     <IconContext.Provider value={{ color: '#ffff00' }}>
       <nav className='navbar mb-5 md:mb-[32.5px] shadow-lg bg-neutral text-gray-100'>
         <div className='container mx-auto flex'>
-          <div className='flex-none px-2 mx-2 relative top-[-2px]'>
+          <div className='flex-none px-2 mx-2 relative top-[-3px]'>
             <TiWeatherPartlySunny className='inline pr-2 text-3xl' />
             <Link to='/' className='text-lg font-bold align-middle'>
               {title}
