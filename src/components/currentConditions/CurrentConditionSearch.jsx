@@ -74,14 +74,14 @@ function CurrentConditionSearch() {
             <div className='relative'>
               <input
                 type='text'
-                className='w-full pr-40 bg-gray-100 input input-md text-black'
+                className='w-full pr-40 bg-gray-100 input input-md text-black text-[16px]'
                 placeholder='Enter City or Zip'
                 value={cityOrZipText}
                 onChange={handleChange}
               />
               <button
                 type='submit'
-                className='absolute top-0 right-0 rounded-l-none btn btn-md text-gray-100 bg-neutral'
+                className='absolute top-0 right-0 rounded-l-none btn btn-md text-[16px] text-gray-100 bg-neutral'
               >
                 Submit
               </button>
