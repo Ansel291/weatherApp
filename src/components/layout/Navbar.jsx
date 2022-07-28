@@ -10,7 +10,10 @@ function Navbar({ title }) {
         <div className='container mx-auto flex'>
           <div className='flex-none px-2 mx-2 relative top-[-3px]'>
             <TiWeatherPartlySunny className='inline pr-2 text-3xl' />
-            <Link to='/' className='text-lg font-bold align-middle'>
+            <Link
+              to='/'
+              className='text-[16px] md:text-lg font-bold align-middle'
+            >
               {title}
             </Link>
           </div>
