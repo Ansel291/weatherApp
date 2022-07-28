@@ -90,7 +90,7 @@ function CurrentConditionSearch() {
         </form>
       </div>
       {typeof currentConditions.length === 'undefined' && (
-        <div>
+        <div className='hidden md:block'>
           <button
             onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}
             className='btn btn-outline btn-warning btn-block'
