@@ -12,7 +12,7 @@ function Navbar({ title }) {
             <TiWeatherPartlySunny className='inline pr-2 text-3xl' />
             <Link
               to='/'
-              className='text-[16px] md:text-lg font-bold align-middle'
+              className='uppercase text-[14px] md:text-[16px] font-bold align-middle tracking-[0.5px]'
             >
               {title}
             </Link>
