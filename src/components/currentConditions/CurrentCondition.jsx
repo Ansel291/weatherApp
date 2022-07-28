@@ -21,14 +21,14 @@ function CurrentCondition() {
     return (
       <div className='max-w-2xl mx-auto text-center md:text-left conditions-text-color'>
         {currentLocation.name && (
-          <div className='text-[27.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[35px] md:mt-[55px] leading-[36px]'>
+          <div className='text-[25px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[35px] md:mt-[55px] leading-[36px]'>
             {currentLocation.name}, {currentLocation.region}
           </div>
         )}
 
         <div className='grid-temp-col md:grid md:items-center md:justify-between'>
           {currentConditions.temp_f && (
-            <div className='text-[44px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.5px]'>
+            <div className='text-[36px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.5px]'>
               {Math.round(currentConditions.temp_f)}&#176;
               <span className='ml-0.5'>F</span>
             </div>
