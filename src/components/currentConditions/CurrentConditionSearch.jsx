@@ -74,14 +74,14 @@ function CurrentConditionSearch() {
             <div className='relative'>
               <input
                 type='text'
-                className='w-full pr-40 bg-gray-100 input input-md text-black text-[16px]'
+                className='w-full pr-40 bg-gray-100 input input-sm text-black text-[16px] h-[2.75rem]'
                 placeholder='Enter City or Zip'
                 value={cityOrZipText}
                 onChange={handleChange}
               />
               <button
                 type='submit'
-                className='absolute top-0 right-0 rounded-l-none btn btn-md text-gray-100 bg-neutral'
+                className='absolute top-0 right-0 rounded-l-none btn btn-sm text-gray-100 bg-neutral h-[2.75rem]'
               >
                 Submit
               </button>
@@ -93,7 +93,7 @@ function CurrentConditionSearch() {
         <div className='hidden md:block'>
           <button
             onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}
-            className='btn btn-outline btn-warning btn-block'
+            className='btn btn-sm btn-outline btn-warning btn-block h-[2.75rem]'
           >
             Clear
           </button>

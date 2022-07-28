@@ -8,11 +8,11 @@ function Navbar({ title }) {
     <IconContext.Provider value={{ color: '#ffff00' }}>
       <nav className='navbar mb-5 md:mb-[32.5px] shadow-lg bg-neutral text-gray-100'>
         <div className='container mx-auto flex'>
-          <div className='flex-none px-2 mx-2 relative top-[-1px]'>
+          <div className='flex-none px-2 mx-2 relative top-[-2px]'>
             <TiWeatherPartlySunny className='inline pr-2 text-3xl' />
             <Link
               to='/'
-              className='uppercase text-[14px] md:text-[16px] font-bold align-middle tracking-[0.5px]'
+              className='uppercase text-[14px] md:text-[16px] font-bold align-middle tracking-[0.6px]'
             >
               {title}
             </Link>
