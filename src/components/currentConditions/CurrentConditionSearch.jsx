@@ -62,7 +62,7 @@ function CurrentConditionSearch() {
 
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
-      }, '1000')
+      }, '500')
     }
   }
 
