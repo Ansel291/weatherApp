@@ -30,6 +30,16 @@ function CurrentConditionSearch() {
 
   const handleChange = (e) => setCityOrZipText(e.target.value)
 
+  const scrollToTop = () => {
+    console.log('yay on blur has been triggered')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    /*
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, '500')
+    */
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -60,9 +70,11 @@ function CurrentConditionSearch() {
 
       setCityOrZipText('')
 
+      /*
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }, '500')
+      */
     }
   }
 
@@ -78,10 +90,12 @@ function CurrentConditionSearch() {
             <div className='relative'>
               <input
                 type='text'
+                id='searchInput'
                 className='w-full pr-40 bg-[#e2e2e2] md:bg-gray-100 input input-sm text-black text-[16px] h-[2.75rem]'
                 placeholder='Enter City or Zip'
                 value={cityOrZipText}
                 onChange={handleChange}
+                onBlur={scrollToTop}
               />
               <button
                 type='submit'
