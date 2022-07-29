@@ -31,13 +31,8 @@ function CurrentConditionSearch() {
   const handleChange = (e) => setCityOrZipText(e.target.value)
 
   const scrollToTop = () => {
-    console.log('yay on blur has been triggered')
+    //console.log('yay on blur has been triggered')
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    /*
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, '500')
-    */
   }
 
   const handleSubmit = async (e) => {
