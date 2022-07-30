@@ -31,7 +31,7 @@ function CurrentCondition() {
             >
               <IoClose className='' />
             </div>
-            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[35px] md:mt-[55px] leading-[36px]'>
+            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[37.5px] md:mt-[55px] leading-[36px]'>
               {currentLocation.name}, {currentLocation.region}
             </div>
           </>
