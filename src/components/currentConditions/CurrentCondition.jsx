@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { IoClose } from 'react-icons/io5'
 import Spinner from '../layout/Spinner'
 import WeatherContext from '../../context/weather/WeatherContext'
 
@@ -8,6 +9,7 @@ function CurrentCondition() {
     currentConditionsSecondary,
     currentLocation,
     loading,
+    dispatch,
     //fetchCurrentCondition,
   } = useContext(WeatherContext)
 
@@ -19,11 +21,20 @@ function CurrentCondition() {
 
   if (!loading) {
     return (
-      <div className='max-w-2xl mx-auto text-center md:text-left conditions-text-color'>
+      <div className='relative max-w-2xl mx-auto text-center md:text-left conditions-text-color'>
         {currentLocation.name && (
-          <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[35px] md:mt-[55px] leading-[36px]'>
-            {currentLocation.name}, {currentLocation.region}
-          </div>
+          <>
+            {/*<div>x</div>*/}
+            <div
+              className='absolute p-[4px] w-[24px] h-[24px] bg-opacity rounded-[50%] right-[0px] top-[-20px] md:hidden'
+              onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}
+            >
+              <IoClose className='' />
+            </div>
+            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[35px] md:mt-[55px] leading-[36px]'>
+              {currentLocation.name}, {currentLocation.region}
+            </div>
+          </>
         )}
 
         <div className='grid-temp-col md:grid md:items-center md:justify-between'>
