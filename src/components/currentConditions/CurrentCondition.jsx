@@ -26,12 +26,12 @@ function CurrentCondition() {
           <>
             {/*<div>x</div>*/}
             <div
-              className='absolute p-[4px] w-[24px] h-[24px] bg-opacity rounded-[50%] right-[0px] top-[-30px] md:hidden'
+              className='absolute p-[4px] w-[24px] h-[24px] bg-opacity rounded-[50%] right-[0px] top-[-20px] md:hidden'
               onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}
             >
               <IoClose className='' />
             </div>
-            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[45px] md:mt-[55px] leading-[36px]'>
+            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[37.5px] md:mt-[55px] leading-[36px]'>
               {currentLocation.name}, {currentLocation.region}
             </div>
           </>
