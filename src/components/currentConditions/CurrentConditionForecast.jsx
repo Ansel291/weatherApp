@@ -10,7 +10,7 @@ function CurrentConditionForecast() {
     return (
       <>
         {currentForecast.length > 0 && (
-          <div className='max-w-2xl mx-auto conditions-text-color bg-opacity rounded-[10px] px-[15px] pt-[10px] pb-[5px] mt-[42.5px] md:mt-[37.5px] mb-[20px]'>
+          <div className='max-w-2xl mx-auto conditions-text-color bg-opacity rounded-[10px] px-[15px] pt-[10px] pb-[5px] mt-[37.5px] md:mt-[37.5px] mb-[20px]'>
             <div className='mb-[7.5px] text-center md:text-left'>
               3-Day Forecast
             </div>
