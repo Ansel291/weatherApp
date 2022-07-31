@@ -121,9 +121,10 @@ body {
 
 .weather-image {
   /* background: url(./images/weatherImage-mobile-opt.jpg) no-repeat center center /
-    cover; */
-  background: url(./images/weatherImage-mobile-opt-bw-01.jpg) no-repeat center
-    center / cover;
+    cover; 
+  background: url(./images/weatherImage-mobile-opt-bw-01.jpg) no-repeat center*/
+  background: url(./images/weatherImage-desktop-bw-01-toned.jpg) no-repeat
+    center center / cover;
 }
 
 .temperature-gradient {
@@ -171,15 +172,19 @@ body {
 
 @media (min-width: 415px) {
   .weather-image {
+    /*
     background: url(./images/weatherImage-tablet-opt-bw-01.jpg) no-repeat center
       center / cover;
+    */
   }
 }
 
 @media (min-width: 768px) {
   .weather-image {
+    /*
     background: url(./images/weatherImage-desktop-opt-bw-01.jpg) no-repeat
       center center / cover;
+      */
   }
   .grid-temp-col {
     grid-template-columns: auto auto auto;
