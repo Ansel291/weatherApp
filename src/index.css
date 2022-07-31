@@ -170,6 +170,11 @@ body {
   text-shadow: 1px 1px 2px #474747, 1px 1px 0px rgb(0 0 0 / 5%);
 }
 
+.box-shadow {
+  -webkit-box-shadow: 0.5px 0.5px 5px 0.5px rgb(0 0 0 / 20%);
+  box-shadow: 0.5px 0.5px 5px 0.5px rgb(0 0 0 / 20%);
+}
+
 @media (min-width: 415px) {
   .weather-image {
     background: url(./images/weatherImage-tablet-bw-02-toned-opt.jpg) no-repeat

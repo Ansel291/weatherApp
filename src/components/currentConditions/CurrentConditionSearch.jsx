@@ -86,7 +86,7 @@ function CurrentConditionSearch() {
               <input
                 type='text'
                 id='searchInput'
-                className='w-full pr-40 bg-[#f5f5f5] md:bg-gray-100 input input-sm text-black text-[16px] h-[2.75rem]'
+                className='w-full pr-40 bg-[#f5f5f5] md:bg-gray-100 input input-sm text-black text-[16px] h-[2.75rem] box-shadow'
                 placeholder='Enter City or Zip'
                 value={cityOrZipText}
                 onChange={handleChange}
@@ -106,7 +106,7 @@ function CurrentConditionSearch() {
         <div className='hidden md:block'>
           <button
             onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}
-            className='btn btn-sm btn-outline btn-warning btn-block h-[2.75rem]'
+            className='btn btn-sm btn-outline btn-warning btn-block h-[2.75rem] box-shadow'
           >
             Clear
           </button>
