@@ -31,7 +31,7 @@ function CurrentCondition() {
             >
               <IoClose className='' />
             </div>
-            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[40.0px] md:mt-[55px] leading-[36px]'>
+            <div className='text-[26.5px] md:text-[32px] mb-5px font-medium md:mb-[px] mt-[40.0px] md:mt-[55px] leading-[36px] text-shadow'>
               {currentLocation.name}, {currentLocation.region}
             </div>
           </>
@@ -39,7 +39,7 @@ function CurrentCondition() {
 
         <div className='grid-temp-col md:grid md:items-center md:justify-between'>
           {currentConditions.temp_f && (
-            <div className='text-[38px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.5px]'>
+            <div className='text-[38px] md:text-[50px] mb-[-5px] md:mb-[0px] md:w-[126px] tracking-[-0.5px] text-shadow'>
               {Math.round(currentConditions.temp_f)}&#176;
               <span className='ml-0.5'>F</span>
             </div>
@@ -55,13 +55,13 @@ function CurrentCondition() {
                 alt='Current Conditions'
               />
             )}
-            <div className='text-[20px] relative bottom-[12.5px] text-center'>
+            <div className='text-[20px] relative bottom-[12.5px] text-center text-shadow'>
               {currentConditionsSecondary.text}
             </div>
           </div>
 
           {currentConditions.pressure_in && (
-            <div className='leading-[24px]'>
+            <div className='leading-[24px] text-shadow'>
               <div>Pressure: {currentConditions.pressure_in} in</div>
               <div>Precipitation: {currentConditions.precip_in} in</div>
               <div>Wind: {Math.round(currentConditions.gust_mph)} mph</div>
