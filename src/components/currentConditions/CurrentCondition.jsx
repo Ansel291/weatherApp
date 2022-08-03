@@ -61,7 +61,7 @@ function CurrentCondition() {
           </div>
 
           {currentConditions.pressure_in && (
-            <div className='leading-[24px] text-shadow'>
+            <div className='leading-[24px] text-shadow-med'>
               <div>Pressure: {currentConditions.pressure_in} in</div>
               <div>Precipitation: {currentConditions.precip_in} in</div>
               <div>Wind: {Math.round(currentConditions.gust_mph)} mph</div>
