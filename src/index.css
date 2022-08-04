@@ -125,7 +125,7 @@ body {
   background: url(./images/weatherImage-mobile-opt-bw-01.jpg) no-repeat center
   background: url(./images/weatherImage-mobile-bw-02-toned-opt.jpg) no-repeat
     center center / cover;*/
-  background: url(./images/weatherImage-desktop-bw-23-toned.jpg) no-repeat
+  background: url(./images/weatherImage-mobile-bw-23-toned-opt.jpg) no-repeat
     center center / cover;
 }
 
@@ -180,20 +180,17 @@ body {
 
 @media (min-width: 415px) {
   .weather-image {
-    /*
-    background: url(./images/weatherImage-tablet-bw-02-toned-opt.jpg) no-repeat
+    background: url(./images/weatherImage-tablet-bw-23-toned-opt.jpg) no-repeat
       center center / cover;
-    */
   }
 }
 
 @media (min-width: 768px) {
   .weather-image {
-    /*
     background: url(./images/weatherImage-desktop-bw-12-toned.jpg) no-repeat
       center center / cover;
-    background: url(./images/weatherImage.jpg) no-repeat center center / cover;
-    */
+    background: url(./images/weatherImage-desktop-bw-23-toned-opt.jpg) no-repeat
+      center center / cover;
   }
   .grid-temp-col {
     grid-template-columns: auto auto auto;
