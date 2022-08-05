@@ -10,6 +10,7 @@ import { WeatherProvider } from './context/weather/WeatherContext'
 import { AlertProvider } from './context/alert/AlertContext'
 
 function App() {
+  sessionStorage.setItem('firstLoadDone', null)
   return (
     <WeatherProvider>
       <AlertProvider>

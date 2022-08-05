@@ -1,10 +1,12 @@
-import { useState, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import WeatherContext from '../../context/weather/WeatherContext'
 import AlertContext from '../../context/alert/AlertContext'
 import { searchCurrentCondition } from '../../context/weather/WeatherActions'
 
 function CurrentConditionSearch() {
   const [cityOrZipText, setCityOrZipText] = useState('')
+  const [headlineClass, setHeadlineClass] = useState('')
+  const [submitClass, setSubmitClass] = useState('hidden')
 
   const {
     currentConditions,
@@ -15,6 +17,38 @@ function CurrentConditionSearch() {
   } = useContext(WeatherContext)
 
   const { setAlert } = useContext(AlertContext)
+
+  useEffect(() => {
+    if (window.sessionStorage.getItem('firstLoadDone') === 'null') {
+      console.log('Yay this is a first load')
+      const headlineTimer = setTimeout(() => {
+        setHeadlineClass('fade-out')
+        sessionStorage.setItem('firstLoadDone', 'true')
+        console.log(window.sessionStorage.getItem('firstLoadDone'))
+
+        const headlineTimerAgain = setTimeout(() => {
+          setHeadlineClass('fade-out hidden')
+
+          const submitTimer = setTimeout(() => {
+            setSubmitClass('block opacity-0')
+            const submitTimerAgain = setTimeout(() => {
+              setSubmitClass('block fade-in')
+            }, 100)
+            return () => clearTimeout(submitTimerAgain)
+          }, 100)
+          return () => clearTimeout(submitTimer)
+        }, 1000)
+        return () => clearTimeout(headlineTimerAgain)
+      }, 1000)
+      return () => clearTimeout(headlineTimer)
+    } else if (window.sessionStorage.getItem('firstLoadDone') === 'true') {
+      console.log('Sorry this is NOT a first load')
+      setHeadlineClass('hidden')
+      setSubmitClass('block')
+    }
+    //sessionStorage.setItem('key', 'value')
+    //let data = sessionStore.getItem('key')
+  }, [])
 
   /*
   console.log(currentConditions.length);
@@ -34,6 +68,24 @@ function CurrentConditionSearch() {
     //console.log('yay on blur has been triggered')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  /*
+  setTimeout(() => {
+    setHeadlineClass('fade-out hidden')
+  }, 1000)
+  */
+
+  /*
+  setTimeout(function () {
+    setHeadlineClass('fade-out hidden')
+  }, 1000)
+  */
+
+  /*
+  setTimeout(() => {
+    setHeadlineClass('fade-out hidden')
+  }, 1100)
+  */
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -75,12 +127,20 @@ function CurrentConditionSearch() {
 
   return (
     <div
-      className={`max-w-2xl mx-auto grid gap-4 grid-cols-1  ${
+      className={`max-w-2xl mx-auto grid gap-4 grid-cols-1 ${
         typeof currentConditions.length === 'undefined' ? 'md:grid-cols-2' : ''
       } `}
     >
       <div>
-        <form onSubmit={handleSubmit}>
+        {typeof currentConditions.length !== 'undefined' && (
+          <h1
+            className={`text-[32px] md:text-[54px] text-center uppercase tracking-[1.5px] font-[600] text-[#eee] ${headlineClass}`}
+          >
+            weather app
+          </h1>
+        )}
+
+        <form onSubmit={handleSubmit} className={submitClass}>
           <div className='form-control'>
             <div className='relative'>
               <input

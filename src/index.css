@@ -178,6 +178,15 @@ body {
   box-shadow: 0.5px 0.5px 5px 0.5px rgb(0 0 0 / 20%);
 }
 
+.fade-in {
+  transition: opacity 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 @media (min-width: 415px) {
   .weather-image {
     background: url(./images/weatherImage-tablet-bw-23-toned-opt.jpg) no-repeat
