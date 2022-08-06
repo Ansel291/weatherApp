@@ -30,8 +30,8 @@ https://weather-app-ja.vercel.app/
 - Components
 - State (Component & App Level)
 - Hooks (ie: useState, useContext, useReducer)
-- Reducer, Actions & Dispatch
-- Forms & Validation
+- Reducer, Action & Dispatch
+- Form & Validation
 - API Calls
 - Routing
 
