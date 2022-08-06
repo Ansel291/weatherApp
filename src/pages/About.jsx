@@ -1,7 +1,7 @@
 function About() {
   return (
     <div className='max-w-2xl mx-auto conditions-text-color'>
-      <h1 className='text-[26.5px] md:text-[32px] mb-[15px] md:mb-[18px] tracking-[.25px]'>
+      <h1 className='text-[26.5px] md:text-[32px] mb-[15px] tracking-[.25px]'>
         Weather App
       </h1>
       <p className='mb-[20px] text-[17px] md:text-[19px] font-light leading-[23px] md:leading-[28px]'>
