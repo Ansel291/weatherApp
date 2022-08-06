@@ -9,8 +9,9 @@ This is a Weather API React App that searches for live current weather condition
 | Development:   | NPM Packages:    | Deployment: |
 | -------------- | ---------------- | ----------- |
 | React.js       | create-react-app | Vercel      |
-| CSS            | react-router-dom |             |
-| HTML5          | react-icons      |             |
+| Tailwind.css   | react-router-dom |             |
+| DaisyUI        | react-icons      |             |
+| HTML5          |                  |             |
 | Visual Studio  |                  |             |
 | Github         |                  |             |
 | weatherapi.com |                  |             |
