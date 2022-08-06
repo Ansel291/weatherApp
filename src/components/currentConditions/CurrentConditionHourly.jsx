@@ -4,7 +4,6 @@ import CurrentConditionHourlyItem from './CurrentConditionHourlyItem'
 
 function CurrentConditionHourly() {
   const { currentForecast, loading } = useContext(WeatherContext)
-  console.log(currentForecast[0])
 
   if (!loading) {
     return (
@@ -15,9 +14,6 @@ function CurrentConditionHourly() {
               Hourly Forecast
             </div>
 
-            {/*
-            <div className='flex justify-center items-center overflow-y-hidden overflow-x-auto'>
-            */}
             <div className='overflow-y-hidden overflow-x-auto flex'>
               {currentForecast[0].hour.map((hourly) => (
                 <CurrentConditionHourlyItem key={hourly.time} hourly={hourly} />

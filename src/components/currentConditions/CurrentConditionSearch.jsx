@@ -8,23 +8,15 @@ function CurrentConditionSearch() {
   const [headlineClass, setHeadlineClass] = useState('')
   const [submitClass, setSubmitClass] = useState('hidden')
 
-  const {
-    currentConditions,
-    dispatch,
-    //currentConditionsSecondary,
-    //currentLocation,
-    //clearCurrentConditions,
-  } = useContext(WeatherContext)
+  const { currentConditions, dispatch } = useContext(WeatherContext)
 
   const { setAlert } = useContext(AlertContext)
 
   useEffect(() => {
     if (window.sessionStorage.getItem('firstLoadDone') === 'null') {
-      console.log('Yay this is a first load')
       const headlineTimer = setTimeout(() => {
         setHeadlineClass('fade-out')
         sessionStorage.setItem('firstLoadDone', 'true')
-        console.log(window.sessionStorage.getItem('firstLoadDone'))
 
         const headlineTimerAgain = setTimeout(() => {
           setHeadlineClass('fade-out hidden')
@@ -42,50 +34,16 @@ function CurrentConditionSearch() {
       }, 1000)
       return () => clearTimeout(headlineTimer)
     } else if (window.sessionStorage.getItem('firstLoadDone') === 'true') {
-      console.log('Sorry this is NOT a first load')
       setHeadlineClass('hidden')
       setSubmitClass('block')
     }
-    //sessionStorage.setItem('key', 'value')
-    //let data = sessionStore.getItem('key')
   }, [])
-
-  /*
-  console.log(currentConditions.length);
-  //console.log(currentConditions.length)
-  //console.log(currentConditions.location)
-  //console.log(currentLocation)
-  if (!currentConditions.length) {
-    console.log('this array is empty')
-  } else {
-    console.log('this array is NOT empty')
-  }
-  */
 
   const handleChange = (e) => setCityOrZipText(e.target.value)
 
   const scrollToTop = () => {
-    //console.log('yay on blur has been triggered')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
-  /*
-  setTimeout(() => {
-    setHeadlineClass('fade-out hidden')
-  }, 1000)
-  */
-
-  /*
-  setTimeout(function () {
-    setHeadlineClass('fade-out hidden')
-  }, 1000)
-  */
-
-  /*
-  setTimeout(() => {
-    setHeadlineClass('fade-out hidden')
-  }, 1100)
-  */
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -95,8 +53,6 @@ function CurrentConditionSearch() {
     } else {
       dispatch({ type: 'SET_LOADING' })
       const currentConditions = await searchCurrentCondition(cityOrZipText)
-
-      console.log(currentConditions)
 
       dispatch({ type: 'GET_CURRENT', payload: currentConditions.current })
 
@@ -116,12 +72,6 @@ function CurrentConditionSearch() {
       })
 
       setCityOrZipText('')
-
-      /*
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }, '500')
-      */
     }
   }
 

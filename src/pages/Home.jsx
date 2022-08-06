@@ -1,4 +1,3 @@
-/* import { IoClose } from 'react-icons/io5' */
 import CurrentCondition from '../components/currentConditions/CurrentCondition'
 import CurrentConditionSearch from '../components/currentConditions/CurrentConditionSearch'
 import CurrentConditionForecast from '../components/currentConditions/CurrentConditionForecast'

@@ -4,7 +4,6 @@ import WeatherContext from '../../context/weather/WeatherContext'
 
 function CurrentConditionForecast() {
   const { currentForecast, loading } = useContext(WeatherContext)
-  //console.log(currentForecast)
 
   if (!loading) {
     return (

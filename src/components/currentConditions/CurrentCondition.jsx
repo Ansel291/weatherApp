@@ -10,21 +10,13 @@ function CurrentCondition() {
     currentLocation,
     loading,
     dispatch,
-    //fetchCurrentCondition,
   } = useContext(WeatherContext)
-
-  /*
-  useEffect(() => {
-    fetchCurrentCondition()
-  }, [])
-  */
 
   if (!loading) {
     return (
       <div className='relative max-w-2xl mx-auto text-center md:text-left conditions-text-color'>
         {currentLocation.name && (
           <>
-            {/*<div>x</div>*/}
             <div
               className='absolute p-[4px] w-[24px] h-[24px] bg-opacity rounded-[50%] right-[0px] top-[-22.5px] md:hidden'
               onClick={() => dispatch({ type: 'CLEAR_CURRENT_CONDITIONS' })}

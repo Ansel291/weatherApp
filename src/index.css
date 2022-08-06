@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* PT SANS CAPTION */
-/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap');*/
-
 /* LATO */
 
 /* latin-ext */
@@ -114,17 +111,10 @@
 }
 
 body {
-  /*font-family: 'Raleway';*/
   font-family: 'Lato';
-  /*font-family: 'PT Sans Caption', sans-serif;*/
 }
 
 .weather-image {
-  /* background: url(./images/weatherImage-mobile-opt.jpg) no-repeat center center /
-    cover; 
-  background: url(./images/weatherImage-mobile-opt-bw-01.jpg) no-repeat center
-  background: url(./images/weatherImage-mobile-bw-02-toned-opt.jpg) no-repeat
-    center center / cover;*/
   background: url(./images/weatherImage-mobile-bw-23-toned-opt.jpg) no-repeat
     center center / cover;
 }
@@ -196,8 +186,6 @@ body {
 
 @media (min-width: 768px) {
   .weather-image {
-    background: url(./images/weatherImage-desktop-bw-12-toned.jpg) no-repeat
-      center center / cover;
     background: url(./images/weatherImage-desktop-bw-23-toned-opt.jpg) no-repeat
       center center / cover;
   }
