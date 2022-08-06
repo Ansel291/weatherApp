@@ -2,7 +2,7 @@
 
 ## Overview:
 
-This is a Weather API React App that searches for live current weather conditions by city or zip code as well as displaying the 3-day forecast and a 24-hour temperature forecast for the current day.
+This is a Weather API React App that searches for live weather conditions by city or zip code as well as displays the 3-day forecast and a 24-hour temperatures.
 
 ## Tech Stack:
 
