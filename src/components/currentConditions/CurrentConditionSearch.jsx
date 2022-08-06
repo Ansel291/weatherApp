@@ -134,7 +134,7 @@ function CurrentConditionSearch() {
       <div>
         {typeof currentConditions.length !== 'undefined' && (
           <h1
-            className={`text-[31px] md:text-[55px] text-center uppercase tracking-[1.5px] font-[600] text-[#eee] ${headlineClass}`}
+            className={`text-[31px] md:text-[55px] text-center uppercase tracking-[1.75px] font-[600] text-[#eee] ${headlineClass}`}
           >
             weather app
           </h1>
