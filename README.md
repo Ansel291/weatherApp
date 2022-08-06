@@ -57,4 +57,4 @@ This app is based on Traversy Media's tutorial
 
 ## Upcoming Features:
 
-- Turning the Project into a Crud app, making it so that a visitor can search a city so that it gets added to a list, and then the visitor can click on that city which will open up a city page
+- Turning the Project into a CRUD app, making it so that a visitor can search a city so that it gets added to a list, and then the visitor can click on that city which will open up a city page
